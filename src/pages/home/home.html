@@ -1,0 +1,39 @@
+<ion-content>
+  <div class="card">
+    <div class="item">
+      A Sample Fab Menu with Scrolling (Radial Arc) <br>
+    </div>
+  </div>
+</ion-content>
+
+<div class="fab-menu-overlay" [ngClass]="{active: fabMenu.active}" (click)="fabMenuToggle()"></div>
+<div class="fab-menu fab-menu-left" [ngClass]="{active: fabMenu.active}">
+  <button class="button button-fab fab-menu-button button-energized-900 icon ion-android-menu" (click)="fabMenuToggle()"></button>
+  <ul class="fab-menu-items" (pan)="tapEvent($event)">
+    <li>
+      <button class="button button-fab fab-menu-button-item button-calm-900 icon ion-home"></button>
+    </li>
+    <li>
+      <button class="button button-fab fab-menu-button-item button-positive-900 icon ion-person"></button>
+    </li>
+    <li>
+      <button class="button button-fab fab-menu-button-item button-balanced-900 icon ion-search"></button>
+    </li>
+    <li>
+      <button class="button button-fab fab-menu-button-item button-positive icon ion-person-stalker"></button>
+    </li>
+    <li>
+      <button class="button button-fab fab-menu-button-item button-calm-900 icon ion-map"></button>
+    </li>
+    <li>
+      <button class="button button-fab fab-menu-button-item button-royal-900 icon ion-email"></button>
+    </li>
+    <li>
+      <button class="button button-fab fab-menu-button-item button-assertive icon ion-settings"></button>
+    </li>
+    <li>
+      <button class="button button-fab fab-menu-button-item button-assertive-900 icon ion-log-out"></button>
+    </li>
+
+  </ul>
+</div>

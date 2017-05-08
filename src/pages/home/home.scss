@@ -1,0 +1,127 @@
+page-home {
+
+
+/*
+* Mixins
+*/
+@mixin display-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin transform($val) {
+  -webkit-transform: $val;
+  transform: $val;
+}
+
+@mixin translate3d($x, $y, $z) {
+  @include transform(translate3d($x, $y, $z));
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+body {
+  background: url(http://rats-funnybone.com/wp-content/uploads/2013/08/aura-background-large-1.jpg) no-repeat;
+  background-size: 100%;
+}
+
+$fab-menu-padding: 20px;
+
+.fab-menu {
+
+  @include display-flex();
+  @include translate3d(0, 0, 0);
+  @include transform(scale(2));
+
+  position: absolute;
+  top: auto;
+  right: auto;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  padding: $fab-menu-padding;
+
+  &.fab-menu-left {
+    top: auto;
+    right: auto;
+    left: 0;
+    bottom: 0;
+  }
+
+  &.fab-menu-right {
+    top: auto;
+    right: 0;
+    left: auto;
+    bottom: 0;
+  }
+
+  .fab-menu-button {
+    position: absolute;
+    bottom: $fab-menu-padding;
+    left: $fab-menu-padding;
+    z-index: 101;
+  }
+}
+
+.fab-menu-items {
+  /**
+   * @see http://hugogiraudel.com/2013/04/02/items-on-circle/
+   */
+  $item-size: 56px; // FAB Button size
+
+  //display: none;
+
+  z-index: 99;
+
+  .fab-menu.active & {
+    display: block;
+  }
+
+  position: absolute;
+  width: 168px;
+  height: 168px;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  list-style: none;
+  > li {
+    @include transition(all 0.5s ease 0s);
+    display: block;
+    position: absolute;
+    width: $item-size;
+    height: $item-size;
+    top: auto;
+    right: auto;
+    bottom: $fab-menu-padding;
+    left: $fab-menu-padding;
+
+  }
+}
+
+.fab-menu-overlay {
+  @include transition(all 0.2s ease 0.2s);
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 98;
+
+  &.active {
+    display: block;
+  }
+}
+
+}
