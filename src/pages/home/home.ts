@@ -147,7 +147,13 @@ export class HomePage {
   };
 
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController) {
+
+    this.fabMenu = {
+      active: false
+    };
+
+  }
 
   public fabMenuToggle() {
     if (this.fabMenu.active) { // Close Menu
@@ -176,7 +182,7 @@ export class HomePage {
 
   panEvent(event) {
     //drag and release
-    if (event.timeStamp - this.lastDragTime > 100) {
+    if (event.timeStamp - this.lastDragTime > 100 && this.fabMenu.active) {
       var direction = 1,
         deltaX = event.deltaX - this.currentX,
         deltaY = event.deltaY - this.currentY,
@@ -189,8 +195,6 @@ export class HomePage {
       }
       this.rotateButtons(direction, delta);
     }
-
-
   }
 
   public animateButtonsIn() {
