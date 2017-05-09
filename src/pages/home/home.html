@@ -7,9 +7,9 @@
 </ion-content>
 
 <div class="fab-menu-overlay" [ngClass]="{active: fabMenu.active}" (click)="fabMenuToggle()"></div>
-<div class="fab-menu fab-menu-left" [ngClass]="{active: fabMenu.active}">
+<div class="fab-menu fab-menu-left" [ngClass]="{active: fabMenu.active}" (pan)="panEvent($event)"  >
   <button class="button button-fab fab-menu-button button-energized-900 icon ion-android-menu" (click)="fabMenuToggle()"></button>
-  <ul class="fab-menu-items" (pan)="tapEvent($event)">
+  <ul class="fab-menu-items" >
     <li>
       <button class="button button-fab fab-menu-button-item button-calm-900 icon ion-home"></button>
     </li>

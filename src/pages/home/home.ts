@@ -147,7 +147,7 @@ export class HomePage {
   };
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) { }
 
   public fabMenuToggle() {
     if (this.fabMenu.active) { // Close Menu
@@ -174,7 +174,7 @@ export class HomePage {
   }
 
 
-  tapEvent(event) {
+  panEvent(event) {
     //drag and release
     if (event.timeStamp - this.lastDragTime > 100) {
       var direction = 1,
@@ -188,14 +188,10 @@ export class HomePage {
         direction = 1;
       }
       this.rotateButtons(direction, delta);
-      this.lastDragTime = event.timeStamp;
-      this.currentX = event.deltaX;
-      this.currentY = event.deltaY;
     }
 
 
   }
-
 
   public animateButtonsIn() {
     for (var i = 0; i < this.buttonContainers.length; i++) {
@@ -219,7 +215,6 @@ export class HomePage {
 
 
   public rotateButtons(direction, speed) {
-
     // still looking for a better solution to handle the rotation speed
     // the direction will be used to define the angle calculation
 
